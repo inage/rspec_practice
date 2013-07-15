@@ -9,15 +9,15 @@ describe MessageFilter do
     it { should_not be_detect("hello, world!") }
   end
 
-  context MessageFilter, "with argument 'foo'" do
+  context "with argument 'foo'" do
 
     subject { MessageFilter.new("foo") }
     it_should_behave_like "MessageFilter with argument 'foo'"
-    it { subject.ng_words.should_not be_empty }
+    its(:ng_words) { should_not be_empty }
 
   end
 
-  context MessageFilter, "with arument 'foo','bar'" do
+  context "with arument 'foo','bar'" do
 
     subject { MessageFilter.new('foo','bar') }
     it { should be_detect("hello from bar") }
