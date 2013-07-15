@@ -5,13 +5,12 @@ require "./message_filter"
 describe MessageFilter, "with argument 'foo'" do
 
   subject { MessageFilter.new("foo") }
+  it { should be_detect("hello from foo") }
+  it { should_not be_detect("hello, world!") }
+end
 
-  it {
-    should be_detect("hello from foo")
-  }
+describe MessageFilter, "with arument 'foo','bar'" do
 
-  it {
-    should_not be_detect("hello, world!")
-  }
-
+  subject { MessageFilter.new('foo','bar') }
+  it { should be_detect("hello from bar") }
 end
