@@ -9,13 +9,13 @@ describe MessageFilter do
     it { should_not be_detect("hello, world!") }
   end
 
-  describe MessageFilter, "with argument 'foo'" do
+  context MessageFilter, "with argument 'foo'" do
 
     subject { MessageFilter.new("foo") }
     it_should_behave_like "MessageFilter with argument 'foo'"
   end
 
-  describe MessageFilter, "with arument 'foo','bar'" do
+  context MessageFilter, "with arument 'foo','bar'" do
 
     subject { MessageFilter.new('foo','bar') }
     it { should be_detect("hello from bar") }
