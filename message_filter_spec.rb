@@ -14,7 +14,7 @@ describe MessageFilter do
 
     subject { MessageFilter.new("foo") }
     it_should_behave_like "MessageFilter with argument 'foo'"
-    it { subject.ng_words.should have(1).items }
+    its(:ng_words) { should have(1).items }
   end
 
   context "with arument 'foo','bar'" do
